@@ -1,13 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import FirstTask from "./components/FirstTask/FirstTask";
+import Navigation from "./components/Navigation/Navigation";
 
-function App() {
-  return (
-    <div className="App">
+class App extends Component {
 
-    </div>
-  );
+    render() {
+        return (
+            <div>
+                <Navigation/>
+            </div>
+        );
+    }
 }
 
 export default App;
