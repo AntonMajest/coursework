@@ -1,91 +1,150 @@
 import React, {Component} from 'react';
-import {closestToZero, findSolutionByIteration, findSolutionByDichotomy} from "../../../service/task1";
-import Chart from "../../Chart/Chart";
+import {findSolutionByIteration,findSolutionByDichotomy, getAmountAfterDot,generateGraph,calculateEquation } from "../../../service/task1";
+import ChartGraph from "../../ChartGraph/ChartGraph";
+
 
 class Dichotomy extends Component {
     constructor() {
         super()
         this.state = {
             data: [],
-            max: '9',
+            max: '10',
             min: '0',
             step: '0.01',
-            dot: '3.50',
-            solution: 3.50,
+            solution: 3.69,
+            amount: 1,
             dichotomy: 8,
-            newton: 0.001,
-            mode: 'iteration'
+            log: [],
         }
     }
 
-    formHandler = (e) => {
-        let {min, max, step} = this.state
-        e.preventDefault()
-        let data = findSolutionByIteration({min: +min, max: +max}, +step)
-        let dot = closestToZero(data)
-        console.log(dot)
-        this.setState({data: data, dot: dot.X + ''})
-    }
-
     componentDidMount() {
-        let data = findSolutionByIteration({min: 0, max: 9}, 0.01)
-        this.setState({data: data})
-        console.log(data)
+        let data = generateGraph({min: 0, max: 5}, 0.01, calculateEquation)
+        this.setState({data: data.filter(el => !isNaN(el.Y) && isFinite(el.Y))})
     }
 
     changeHandle = (event) => {
+        event.preventDefault();
         this.setState({
-            [event.currentTarget.name]: event.currentTarget.value
-        })
+            [event.currentTarget.name]: event.currentTarget.value,
+        });
+    };
+
+    formHandler = (e) => {
+        try {
+            let { min, max, step } = this.state;
+            e.preventDefault();
+            let data = generateGraph(
+                { min: +min, max: +max },
+                +step,
+                calculateEquation
+            );
+            this.setState({
+                data: data.filter((el) => !isNaN(el.Y) && isFinite(el.Y)),
+            });
+        } catch (e) {
+            console.log(e);
+        }
     };
 
     calculateDot = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         let num;
-        debugger;
-        num = findSolutionByDichotomy({min: +this.state.min, max: +this.state.max}, +this.state.dichotomy)
-        this.setState({solution: num})
-    }
+        try {
+            let log = findSolutionByDichotomy(
+                {
+                    min: +this.state.min,
+                    max: +this.state.max,
+                },
+                +this.state.dichotomy
+            );
+            if (log === null) {
+                this.setState({ solution: 0, log: [], amount: 0 });
+            } else {
+                num = log[log.length - 1]["Центр"];
+                this.setState({ solution: num, log: log, amount: 1 });
+            }
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+
     render() {
         return (
-            <div>
-                <form onSubmit={this.formHandler}>
-                    <div>
-                        <label htmlFor={'min'}>Min</label>
-                        <input name={'min'}
-                               value={this.state.min}
-                               placeholder={'0'}
-                               onChange={this.changeHandle}
-                        />
-                    </div>
-                    <div className={'interval-wrapper'}>
-                        <label htmlFor={'max'}>Max</label>
-                        <input className={'intervals-input'}
-                               name={'max'}
-                               value={this.state.max}
-                               placeholder={'5'}
-                               onChange={this.changeHandle}
-                        />
-                    </div>
-                    <div className={'interval-wrapper'}>
-                        <label htmlFor={'step'}>Step</label>
-                        <input className={'intervals-input'}
-                               name={'step'}
-                               value={this.state.step}
-                               placeholder={'0.01'}
-                               onChange={this.changeHandle}
-                        />
-                    </div>
-                    <button type={'submit'}>Створити</button>
-                </form >
+            <div className="methodBody">
+                <div>
+                    <form className={"formBody"} onSubmit={this.formHandler}>
+                        <div className={"form-label"}>
+                            <label className={"name-label"} htmlFor={"min"}>
+                                Min
+                            </label>
+                            <input
+                                name={"min"}
+                                value={this.state.min}
+                                placeholder={"0"}
+                                onChange={this.changeHandle}
+                            />
+                        </div>
+                        <div className={"form-label"}>
+                            <label className={"name-label"} htmlFor={"max"}>
+                                Max
+                            </label>
+                            <input
+                                name={"max"}
+                                value={this.state.max}
+                                placeholder={"5"}
+                                onChange={this.changeHandle}
+                            />
+                        </div>
+                        <div className={"form-label"}>
+                            <label className={"name-label"} htmlFor={"step"}>
+                                Step
+                            </label>
+                            <input
+                                name={"step"}
+                                value={this.state.step}
+                                placeholder={"0.01"}
+                                onChange={this.changeHandle}
+                            />
+                        </div>
+                        <button className={"button-made"} type={"submit"}>
+                            Створити
+                        </button>
+                        <div className="second-setForm">
+                            <div className={"secondSetForminput"}>
+                                <label className={"name-label"} htmlFor={"dichotomy"}>
+                                    Кількість ділень
+                                </label>
+                                <input
+                                    name={"dichotomy"}
+                                    value={this.state.dichotomy}
+                                    placeholder={"8"}
+                                    onChange={this.changeHandle}
+                                />
 
-                <div className={'solution'}>
-                    <span>X = </span>
-                    <span>{this.state.solution}</span>
+                                <div>
+                                    <div>
+                                        <div>X = {this.state.solution} </div>
+                                    </div>
+                                    <div>
+                                        <div>Знайдено коренів {this.state.amount} </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button className={"button-made"} onClick={this.calculateDot}>
+                                Розрахувати точку
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <Chart data={this.state.data} dot={this.state.dot}/>
+                <ChartGraph
+                    data={this.state.data}
+                    dotX={this.state.solution.toFixed(getAmountAfterDot(this.state.step))}
+                    dotY={0}
+                />
             </div>
-        );
+    );
     }
 }
 

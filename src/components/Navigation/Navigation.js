@@ -15,9 +15,9 @@ class Navigation extends Component {
             <div>
                 <BrowserRouter>
                     <div className={'links'}>
-                        <NavLink className={'link'} to={'/firstTask'}>Завдання 1</NavLink>
-                        <NavLink className={'link'} to={'/secondTask'}>Завдання 2</NavLink>
-                        <NavLink className={'link'} to={'/thirdTask'}>Завдання 3</NavLink>
+                        <NavLink className={'link'} to={'/firstTask'}>First Task</NavLink>
+                        <NavLink className={'link'} to={'/secondTask'}>Second Task</NavLink>
+                        <NavLink className={'link'} to={'/thirdTask'}>Third Task</NavLink>
                     </div>
                     <Switch>
                         <Route path={'/firstTask'} component={FirstTask}>
