@@ -10,7 +10,6 @@ class ThirdTaskNav extends Component {
                 <NavLink className={'thirdNavLink'}  to={'/thirdTask' + 'BySimpson'}> Метод Сімпсона </NavLink>
                 <NavLink className={'thirdNavLink'}  to={'/thirdTask' + 'ByTrapezium'}> Метод Трапецій </NavLink>
                 <NavLink className={'thirdNavLink'}  to={'/thirdTask' + 'ByMonteCarlo'}> Метод Монте-Крало </NavLink>
-                <NavLink className={'thirdNavLink'}  to={'/thirdTask' + 'Table'}> Таблиці </NavLink>
             </div>
         );
     }

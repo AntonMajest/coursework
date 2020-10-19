@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Navigation.css'
-import {BrowserRouter, Route, Switch, Redirect, NavLink} from "react-router-dom";
+import {BrowserRouter, Route, Switch, Redirect, NavLink, Link} from "react-router-dom";
 import FirstTask from "../FirstTask/FirstTask";
 import SecondTask from "../SecondTask/SecondTask";
 import ThirdTask from "../ThirdTask/ThirdTask";
@@ -13,6 +13,7 @@ import Simpson from "../ThirdTask/Simpson/Simpson";
 import Trapezium from "../ThirdTask/Trapezium/Trapezium";
 import MonteCarlo from "../ThirdTask/MonteCarlo/MonteCarlo";
 import Rectan from "../ThirdTask/Rectan/Rectan";
+
 
 class Navigation extends Component {
     render() {
@@ -61,10 +62,6 @@ class Navigation extends Component {
                         <Route path={'/thirdTaskByMonteCarlo'} component={MonteCarlo}>
                             <ThirdTaskNav/>
                             <MonteCarlo/>
-                        </Route>
-                        <Route path={'/thirdTaskTable'} component={MonteCarlo}>
-                            <ThirdTaskNav/>
-
                         </Route>
                     </Switch>
                 </BrowserRouter>

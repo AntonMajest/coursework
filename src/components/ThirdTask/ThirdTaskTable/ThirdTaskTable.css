@@ -1,0 +1,29 @@
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-collapse: separate;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.table-title {
+    color: #451775;
+    font-size: 24px;
+    padding-bottom: 15px;
+    font-weight: 700;
+}
+
+th,td {
+    border: 1px solid #7A497C ;
+    padding: 3px 15px;
+    color: #451775;
+    font-weight: 700;
+}
+
+.third-task-table {
+    border-collapse: collapse;
+    text-align: center;
+}
+
