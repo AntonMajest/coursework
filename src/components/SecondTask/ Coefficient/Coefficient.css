@@ -1,0 +1,4 @@
+.coefficientData{
+    display: flex;
+    flex-direction: column;
+}

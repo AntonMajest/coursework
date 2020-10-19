@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import Coefficient from "./ Coefficient/Coefficient";
 
 class SecondTask extends Component {
     render() {
         return (
             <div>
-                Second Task
+                <Coefficient/>
             </div>
         );
     }

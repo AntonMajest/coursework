@@ -24,10 +24,10 @@ class Navigation extends Component {
                             <FirstTaskNav/>
                         </Route>
                         <Route path={'/secondTask'} component={SecondTask}>
-                            Second Task
+                            <SecondTask/>
                         </Route>
                         <Route path={'/thirdTask'} component={ThirdTask}>
-                            Third Task
+                            <ThirdTask/>
                         </Route>
                         <Route path={'/firstTaskByIteration'} component={Iteration}>
                             <FirstTaskNav/>
