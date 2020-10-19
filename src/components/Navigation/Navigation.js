@@ -8,6 +8,11 @@ import Iteration from "../FirstTask/Iteration/Iteration";
 import FirstTaskNav from "./FirstTaskNav/FirstTaskNav";
 import Dichotomy from "../FirstTask/Dichotomy/Dichotomy";
 import Newton from "../FirstTask/Newton/Newton";
+import ThirdTaskNav from "./ThirdTaskNav/ThirdTaskNav";
+import Simpson from "../ThirdTask/Simpson/Simpson";
+import Trapezium from "../ThirdTask/Trapezium/Trapezium";
+import MonteCarlo from "../ThirdTask/MonteCarlo/MonteCarlo";
+import Rectan from "../ThirdTask/Rectan/Rectan";
 
 class Navigation extends Component {
     render() {
@@ -23,12 +28,6 @@ class Navigation extends Component {
                         <Route path={'/firstTask'} component={FirstTask}>
                             <FirstTaskNav/>
                         </Route>
-                        <Route path={'/secondTask'} component={SecondTask}>
-                            <SecondTask/>
-                        </Route>
-                        <Route path={'/thirdTask'} component={ThirdTask}>
-                            <ThirdTask/>
-                        </Route>
                         <Route path={'/firstTaskByIteration'} component={Iteration}>
                             <FirstTaskNav/>
                             <Iteration/>
@@ -41,8 +40,33 @@ class Navigation extends Component {
                             <FirstTaskNav/>
                             <Newton/>
                         </Route>
-                    </Switch>
+                        <Route path={'/secondTask'} component={SecondTask}>
+                            <SecondTask/>
+                        </Route>
+                        <Route path={'/thirdTask'} component={ThirdTask}>
+                            <ThirdTaskNav/>
+                        </Route>
+                        <Route path={'/thirdTaskByRectan'} component={Rectan}>
+                            <ThirdTaskNav/>
+                            <Rectan/>
+                        </Route>
+                        <Route path={'/thirdTaskBySimpson'} component={Simpson}>
+                            <ThirdTaskNav/>
+                            <Simpson/>
+                        </Route>
+                        <Route path={'/thirdTaskByTrapezium'} component={Trapezium}>
+                            <ThirdTaskNav/>
+                            <Trapezium/>
+                        </Route>
+                        <Route path={'/thirdTaskByMonteCarlo'} component={MonteCarlo}>
+                            <ThirdTaskNav/>
+                            <MonteCarlo/>
+                        </Route>
+                        <Route path={'/thirdTaskTable'} component={MonteCarlo}>
+                            <ThirdTaskNav/>
 
+                        </Route>
+                    </Switch>
                 </BrowserRouter>
 
             </div>

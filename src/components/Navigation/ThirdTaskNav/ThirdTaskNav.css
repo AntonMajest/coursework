@@ -1,0 +1,25 @@
+.thirdNavLinks {
+    display: flex;
+    justify-content: space-around;
+    background-color: #F4F4F4;
+    padding: 10px 30px;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.thirdNavLink {
+    text-decoration: none;
+    color: #635c73;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 15px;
+    padding: 5px 15px;
+    letter-spacing: 1px;
+}
+
+.thirdNavLink:hover {
+    background-color: #6B5F86;
+    color: white;
+    transition: 1s;
+    border-radius: 8px;
+}
