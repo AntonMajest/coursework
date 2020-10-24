@@ -3,6 +3,7 @@ import ChartGraph from "../../ChartGraph/ChartGraph";
 import {calculateEquation, data} from "../../../service/task2";
 import {getAmountAfterDot} from "../../../service/task1";
 import './Coefficient.css'
+import  {ToastContainer, toast} from "react-toastify";
 
 class Coefficient extends Component {
     constructor() {
@@ -87,7 +88,7 @@ class Coefficient extends Component {
                         </div>
                         <div className={"form-label"}>
                             <label className={"name-label"} htmlFor={"precision"}>
-                                Precision
+                                Accuracy
                             </label>
                             <input
                                 name={"precision"}
@@ -112,6 +113,7 @@ class Coefficient extends Component {
                         <div>
                             <div>
                                 <div>T = {this.state.solution.X} </div>
+
                             </div>
                             <div>
                                 <div>Значення</div>
@@ -132,7 +134,7 @@ class Coefficient extends Component {
                     <ChartGraph
                         data={this.state.data}
                         dotX={
-                            +this.state.solution.X.toFixed(getAmountAfterDot(this.state.precision))
+                            +this.state.solution.X
                         }
                         dotY={this.state.solution.Y}
                     />

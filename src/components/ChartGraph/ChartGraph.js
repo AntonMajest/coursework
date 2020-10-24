@@ -13,7 +13,11 @@ class ChartGraph extends PureComponent {
                 <XAxis dataKey={'X'}/>
                 <YAxis dataKey={'Y'}/>
                 <Tooltip/>
-                <ReferenceDot x={this.props.dotX} y={this.props.dotY} r={8} fill="#A6003F" stroke="#635B73" />
+                <ReferenceDot x={this.props.dotX}
+                              y={Math.sqrt(this.props.dotX)}
+                              r={8}
+                              fill="#A6003F"
+                              stroke="#635B73" />
                 <Line type={'monotone'}
                       dataKey={'Y'}
                       stroke="#A6003F"

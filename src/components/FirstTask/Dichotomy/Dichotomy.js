@@ -11,15 +11,14 @@ class Dichotomy extends Component {
             max: '10',
             min: '0',
             step: '0.01',
-            solution: 3.69,
+            solution: 0.00,
             amount: 1,
-            dichotomy: 8,
-            log: [],
+            dichotomy: 4,
         }
     }
 
     componentDidMount() {
-        let data = generateGraph({min: 0, max: 5}, 0.01, calculateEquation)
+        let data = generateGraph({min: 0, max: 10}, 0.01, calculateEquation)
         this.setState({data: data.filter(el => !isNaN(el.Y) && isFinite(el.Y))})
     }
 

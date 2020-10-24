@@ -15,7 +15,6 @@ class Rectan extends Component {
             minY: '0',
             iterations: '10',
             solution: 0.00,
-            log: [],
         }
     }
 
@@ -65,7 +64,7 @@ class Rectan extends Component {
                 <div className={"table"}>
                     <div className={"table-title"}>Метод прямокутників</div>
                     <ThirdTaskTable title={'Метод прямокутників'}
-                                    analiticValue={0.716}
+                                    analiticValue={19.086}
                                     func={(iters) => rectangle({min: +min, max: +max}, iters)}
                     />
 

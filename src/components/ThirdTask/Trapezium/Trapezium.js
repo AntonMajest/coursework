@@ -9,14 +9,12 @@ class Trapezium extends Component {
         super()
         this.state = {
             data: [],
-            max: '3.14',
+            max: '3',
             min: '0',
             maxY: '1',
             minY: '0',
             iterations: '10',
-            solution: 0.64,
             log: [],
-            mode: 'rectangle'
         }
     }
 
@@ -68,7 +66,7 @@ class Trapezium extends Component {
 
                     <div className={"table-title"}>Метод Трапецій</div>
                     <ThirdTaskTable title={'Метод Трапецій'}
-                                    analiticValue={0.716}
+                                    analiticValue={19.086}
                                     func={(iters) => trap({min: +min, max: +max}, iters)}
                     />
 

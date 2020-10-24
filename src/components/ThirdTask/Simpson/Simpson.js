@@ -9,7 +9,7 @@ class Simpson extends Component {
         super()
         this.state = {
             data: [],
-            max: '3.14',
+            max: '3',
             min: '0',
             maxY: '1',
             minY: '0',
@@ -68,7 +68,7 @@ class Simpson extends Component {
 
                     <div className={"table-title"}>Метод Сімпсона</div>
                     <ThirdTaskTable title={'Метод Сімпсона'}
-                                    analiticValue={0.716}
+                                    analiticValue={19.086}
                                     func={(iters) => simpson({min: +min, max: +max}, iters)}
                     />
 

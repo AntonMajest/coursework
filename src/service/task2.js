@@ -10,12 +10,14 @@ export let data = [
 ]
 
 function calculateLeftEquation(b) {
-    return b
+    return Math.sqrt(b)
 }
+/*function calculateLeftEquation(b,k,t) {
+    return (-b * k - k + Math.sqrt(-(4 - 4 * b) * (-b * k * t - k * t)+ Math.pow((b * k + k),2)))/(2 - 2 *b)
+}*/
 
 function calculateRightEquation(b, k, t) {
     let y = (-b * k - k + Math.sqrt(-(4 - 4 * b) * (-b * k * t - k * t)+ Math.pow((b * k + k),2)))/(2 - 2 *b)
-    console.log(y)
     return y
 }
 
@@ -28,14 +30,23 @@ export function calculateEquation(interval, data, precision) {
     let result = { data: [], correctY: 0, correctX: 0}
     for(let i = min; i < max; i += precision) {
         let correctX = +i.toFixed(getAmountAfterDot(precision))
-        let calculatedY = calculateLeftEquation(correctX)
 
+        let calculatedY = calculateLeftEquation(correctX)
+        /*let calculatedY = calculateLeftEquation(1.5,700,303)*/
+        let correctCalculatedX = rightPart.toFixed(getAmountAfterDot(precision))
         result.data.push({X: correctX, Y: calculatedY})
         if(Math.abs(rightPart - calculatedY) < lowest) {
-            result.correctX = correctX
+            result.correctX = correctCalculatedX
             result.correctY = calculatedY
             lowest = Math.abs(rightPart - calculatedY)
         }
     }
+
     return result
 }
+
+// if(Math.abs(rightPart - calculatedY) < lowest) {
+//     result.correctX = correctX
+//     result.correctY = calculatedY
+//     lowest = Math.abs(rightPart - calculatedY)
+// }

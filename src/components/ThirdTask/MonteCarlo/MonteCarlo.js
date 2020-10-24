@@ -9,14 +9,12 @@ class MonteCarlo extends Component {
         super()
         this.state = {
             data: [],
-            max: '3.14',
+            max: '3',
             min: '0',
             maxY: '1',
             minY: '0',
             iterations: '10',
-            solution: 0.64,
-            log: [],
-            mode: 'rectangle'
+            solution: 0.00,
         }
     }
 
@@ -72,7 +70,7 @@ class MonteCarlo extends Component {
     </div>
                     <ThirdTaskTable
                         title={"Метод Монте-Карло"}
-                        analiticValue={0.716}
+                        analiticValue={19.086}
                         func={(iters) =>
                             monteCarlo(
                                 { xMax: +max, xMin: +min },
@@ -117,27 +115,27 @@ class MonteCarlo extends Component {
                     <button className={"button-made"} type={"submit"}>
                         Створити
                     </button>
-
-                    <div className={"form-label"}>
-                        <label className={"name-label"} htmlFor={"maxY"}>Максимальне значення Y</label>
-                        <input
-
-                            name={"maxY"}
-                            value={this.state.minY}
-                            placeholder={"1"}
-                            onChange={this.changeHandle}
-                        />
-                    </div>
                     <div className={"form-label"}>
                         <label className={"name-label"} htmlFor={"minY"}>Мінімальне значення Y</label>
                         <input
 
                             name={"minY"}
-                            value={this.state.maxY}
+                            value={this.state.minY}
                             placeholder={"0"}
                             onChange={this.changeHandle}
                         />
                     </div>
+                    <div className={"form-label"}>
+                        <label className={"name-label"} htmlFor={"maxY"}>Максимальне значення Y</label>
+                        <input
+
+                            name={"maxY"}
+                            value={this.state.maxY}
+                            placeholder={"1"}
+                            onChange={this.changeHandle}
+                        />
+                    </div>
+
                     <div>X = {this.state.solution} </div>
                     <button
                         className={"button-made"}

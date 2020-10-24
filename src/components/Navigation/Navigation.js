@@ -51,10 +51,10 @@ class Navigation extends Component {
                             <ThirdTaskNav/>
                             <Rectan/>
                         </Route>
-                        <Route path={'/thirdTaskBySimpson'} component={Simpson}>
+                        {/*<Route path={'/thirdTaskBySimpson'} component={Simpson}>
                             <ThirdTaskNav/>
                             <Simpson/>
-                        </Route>
+                        </Route>*/}
                         <Route path={'/thirdTaskByTrapezium'} component={Trapezium}>
                             <ThirdTaskNav/>
                             <Trapezium/>

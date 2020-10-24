@@ -10,7 +10,7 @@ class Newton extends Component {
             max: '10',
             min: '0',
             step: '0.01',
-            solution: 3.69,
+            solution: 12.97766,
             amount: 1,
             dichotomy: 8,
             log: [],
@@ -59,11 +59,10 @@ class Newton extends Component {
             )
                 .then((result) => {
                     if (result === null) {
-                        this.setState({ solution: 0, log: [], amount: 0 });
+                        this.setState({ solution: 0, amount: 0 });
                     } else {
                         this.setState({
-                            solution: result[result.length - 1]["Точка перетину Оси X"],
-                            log: result,
+                            solution: result[result.length - 1]["Точка перетину Осі X"],
                             amount: 1,
                         });
                     }
@@ -128,7 +127,7 @@ class Newton extends Component {
                             placeholder={"0.001"}
                             onChange={this.changeHandle}
                         />
-                        <button className={"button-made"} onClick={this.clculateDot}>
+                        <button className={"button-made"} onClick={this.calculateDot}>
                             Розрахувати точку
                         </button>
                     </div>
