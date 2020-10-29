@@ -31,6 +31,13 @@ export function findSolutionByDichotomy(interval, n) {
         let obj = {'Нижня точка': min, 'Верхня точка': max}
         center = (min + max) / 2
         obj['Центр'] = center
+        if(calculateEquation(center) * calculateEquation(max) >= 0) {
+            max = center
+            obj['Напрямок'] = 'Лівіше'
+        } else {
+            min = center
+            obj['Напрямок'] = 'Правіше'
+        }
         result.push(obj)
     }
     return result

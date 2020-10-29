@@ -9,8 +9,10 @@ export let data = [
     {b: 2.5, k: 1500, t: 303},
 ]
 
-function calculateLeftEquation(b) {
-    return Math.sqrt(b)
+function calculateLeftEquation(x) {
+    let y = (x*x/400) + 0.3
+    console.log(y)
+    return y
 }
 /*function calculateLeftEquation(b,k,t) {
     return (-b * k - k + Math.sqrt(-(4 - 4 * b) * (-b * k * t - k * t)+ Math.pow((b * k + k),2)))/(2 - 2 *b)
@@ -32,8 +34,11 @@ export function calculateEquation(interval, data, precision) {
         let correctX = +i.toFixed(getAmountAfterDot(precision))
 
         let calculatedY = calculateLeftEquation(correctX)
+
+
         /*let calculatedY = calculateLeftEquation(1.5,700,303)*/
         let correctCalculatedX = rightPart.toFixed(getAmountAfterDot(precision))
+
         result.data.push({X: correctX, Y: calculatedY})
         if(Math.abs(rightPart - calculatedY) < lowest) {
             result.correctX = correctCalculatedX

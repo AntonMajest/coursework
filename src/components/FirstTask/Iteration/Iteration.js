@@ -13,11 +13,13 @@ class Iteration extends Component {
             solution: 7.92,
             amount: 1,
             dichotomy: 8,
+            log: [],
+            newton: 0.001,
         }
     }
 
     componentDidMount() {
-        let data = generateGraph({min: 0, max: 5}, 0.01, calculateEquation)
+        let data = generateGraph({min: 0, max: 15}, 0.01, calculateEquation)
         console.log(data)
         this.setState({data: data.filter(el => !isNaN(el.Y) && isFinite(el.Y))})
     }

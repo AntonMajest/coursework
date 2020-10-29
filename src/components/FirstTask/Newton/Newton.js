@@ -53,18 +53,12 @@ class Newton extends Component {
     calculateDot = (e) => {
         e.preventDefault();
         try {
-            findSolutionByNewton(
-                { min: +this.state.min, max: +this.state.max },
-                +this.state.newton
-            )
+            findSolutionByNewton({min: +this.state.min, max: +this.state.max}, +this.state.newton)
                 .then((result) => {
                     if (result === null) {
-                        this.setState({ solution: 0, amount: 0 });
+                        this.setState({solution: 0, log: [], amount: 0})
                     } else {
-                        this.setState({
-                            solution: result[result.length - 1]["Точка перетину Осі X"],
-                            amount: 1,
-                        });
+                        this.setState({solution: result[result.length - 1]['Точка перетину Оси X'], log: result, amount: 1})
                     }
                 })
                 .catch((e) => {

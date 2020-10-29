@@ -11,9 +11,11 @@ class Dichotomy extends Component {
             max: '10',
             min: '0',
             step: '0.01',
-            solution: 0.00,
+            solution: 3.69,
             amount: 1,
-            dichotomy: 4,
+            dichotomy: 8,
+            log: [],
+            newton: 0.001,
         }
     }
 

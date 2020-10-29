@@ -110,13 +110,12 @@ class Coefficient extends Component {
                             })}
                         </div>
 
-                        <div>
+                        <div className={'task2Solution'}>
                             <div>
                                 <div>T = {this.state.solution.X} </div>
-
                             </div>
                             <div>
-                                <div>Значення</div>
+
                                 <div>
                                     <div>B = {dataset.b}</div>
                                     <div>K = {dataset.k}</div>
@@ -136,7 +135,7 @@ class Coefficient extends Component {
                         dotX={
                             +this.state.solution.X
                         }
-                        dotY={this.state.solution.Y}
+                        dotY={(this.state.solution.Y * this.state.solution.Y)/400 + 0.3}
                     />
                 </div>
             </div>
