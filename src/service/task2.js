@@ -10,7 +10,7 @@ export let data = [
 ]
 
 function calculateLeftEquation(x) {
-    let y = (x*x/400) + 0.3
+    let y = ((3/2)-(Math.pow(x,2)+700*x-303)/(Math.pow(x,2)-700*x+303))
     console.log(y)
     return y
 }
@@ -30,21 +30,19 @@ export function calculateEquation(interval, data, precision) {
     let rightPart = +calculateRightEquation(...Object.values(data))
     let lowest = Infinity
     let result = { data: [], correctY: 0, correctX: 0}
+    let correctCalculatedX = rightPart.toFixed(getAmountAfterDot(precision))
+    let correctCalculatedY = calculateLeftEquation(correctCalculatedX)
+    result.correctX = correctCalculatedX
+    result.correctY = correctCalculatedY
     for(let i = min; i < max; i += precision) {
         let correctX = +i.toFixed(getAmountAfterDot(precision))
 
         let calculatedY = calculateLeftEquation(correctX)
 
 
-        /*let calculatedY = calculateLeftEquation(1.5,700,303)*/
-        let correctCalculatedX = rightPart.toFixed(getAmountAfterDot(precision))
 
         result.data.push({X: correctX, Y: calculatedY})
-        if(Math.abs(rightPart - calculatedY) < lowest) {
-            result.correctX = correctCalculatedX
-            result.correctY = calculatedY
-            lowest = Math.abs(rightPart - calculatedY)
-        }
+
     }
 
     return result

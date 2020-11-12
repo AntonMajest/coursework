@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import ChartGraph from "../../ChartGraph/ChartGraph";
 import {calculateEquation, data} from "../../../service/task2";
 import {getAmountAfterDot} from "../../../service/task1";
 import './Coefficient.css'
 import  {ToastContainer, toast} from "react-toastify";
 
-class Coefficient extends Component {
+class Coefficient extends PureComponent {
     constructor() {
         super()
         this.state = {
@@ -135,7 +135,7 @@ class Coefficient extends Component {
                         dotX={
                             +this.state.solution.X
                         }
-                        dotY={(this.state.solution.Y * this.state.solution.Y)/400 + 0.3}
+                        dotY={+this.state.solution.Y}
                     />
                 </div>
             </div>

@@ -6,9 +6,9 @@ class FirstTaskNav extends Component {
     render() {
         return (
             <div className={'firstNavLinks'}>
-                <NavLink className={'firstNavLink'} to={'/firstTask' + 'ByIteration'}> Метод ітерації </NavLink>
-                <NavLink className={'firstNavLink'}  to={'/firstTask' + 'ByDichotomy'}> Метод дихотомії </NavLink>
-                <NavLink className={'firstNavLink'}  to={'/firstTask' + 'ByNewton'}> Метод Ньютона </NavLink>
+                <NavLink className={'firstNavLink'} to={'/firstTask' + 'ByIteration'} activeClassName='active-link'> Метод ітерації </NavLink>
+                <NavLink className={'firstNavLink'}  to={'/firstTask' + 'ByDichotomy'} activeClassName='active-link'> Метод дихотомії </NavLink>
+                <NavLink className={'firstNavLink'}  to={'/firstTask' + 'ByNewton'} activeClassName='active-link'> Метод Ньютона </NavLink>
             </div>
         );
     }

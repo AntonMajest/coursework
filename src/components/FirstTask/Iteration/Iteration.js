@@ -7,7 +7,7 @@ class Iteration extends Component {
         super()
         this.state = {
             data: [],
-            max: '10',
+            max: '1',
             min: '0',
             step: '0.01',
             solution: 7.92,
@@ -19,7 +19,7 @@ class Iteration extends Component {
     }
 
     componentDidMount() {
-        let data = generateGraph({min: 0, max: 15}, 0.01, calculateEquation)
+        let data = generateGraph({min: 0, max: 1}, 0.01, calculateEquation)
         console.log(data)
         this.setState({data: data.filter(el => !isNaN(el.Y) && isFinite(el.Y))})
     }

@@ -20,7 +20,7 @@ class Newton extends Component {
 
 
     componentDidMount() {
-        let data = generateGraph({min: 0, max: 5}, 0.01, calculateEquation)
+        let data = generateGraph({min: 0, max: 10}, 0.01, calculateEquation)
         this.setState({data: data.filter(el => !isNaN(el.Y) && isFinite(el.Y))})
     }
 
@@ -55,6 +55,7 @@ class Newton extends Component {
         try {
             findSolutionByNewton({min: +this.state.min, max: +this.state.max}, +this.state.newton)
                 .then((result) => {
+                    console.log(result)
                     if (result === null) {
                         this.setState({solution: 0, log: [], amount: 0})
                     } else {

@@ -8,7 +8,7 @@ class Dichotomy extends Component {
         super()
         this.state = {
             data: [],
-            max: '10',
+            max: '1',
             min: '0',
             step: '0.01',
             solution: 3.69,
@@ -20,7 +20,7 @@ class Dichotomy extends Component {
     }
 
     componentDidMount() {
-        let data = generateGraph({min: 0, max: 10}, 0.01, calculateEquation)
+        let data = generateGraph({min: 0, max: 1}, 0.01, calculateEquation)
         this.setState({data: data.filter(el => !isNaN(el.Y) && isFinite(el.Y))})
     }
 

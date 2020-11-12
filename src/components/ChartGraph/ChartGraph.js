@@ -3,6 +3,7 @@ import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ReferenceDot} fro
 
 class ChartGraph extends PureComponent {
     render() {
+        console.log(this.props)
         return (
             <LineChart width={1000}
                        height={500}

@@ -1,7 +1,7 @@
 import {query, WOLFRAM_URL} from "../config/config";
 
 export function calculateEquation(x) {
-    return Math.pow(x,3) - Math.exp(4*x)- 5.5
+    return Math.pow(x,3) - Math.exp(4*x) + 5.5
 }
 
 export function getAmountAfterDot(n) {
@@ -86,8 +86,11 @@ export async function getInfo(input) {
 
 export function calculateRootAtZero(equation) {
     let trimedEquation = equation.split('=')[1].trim().split(' ')
+    console.log(trimedEquation, 'trimedEquation')
     trimedEquation.splice(1, 2)
     let [first, second] = trimedEquation
+    console.log(first, "first")
+    console.log(second, "second")
     return second / first
 }
 

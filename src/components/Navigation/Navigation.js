@@ -13,6 +13,7 @@ import Simpson from "../ThirdTask/Simpson/Simpson";
 import Trapezium from "../ThirdTask/Trapezium/Trapezium";
 import MonteCarlo from "../ThirdTask/MonteCarlo/MonteCarlo";
 import Rectan from "../ThirdTask/Rectan/Rectan";
+import Title from "../Title/Title";
 
 
 class Navigation extends Component {
@@ -21,9 +22,9 @@ class Navigation extends Component {
             <div>
                 <BrowserRouter>
                     <div className={'links'}>
-                        <NavLink className={'link'} to={'/firstTask'}>First Task</NavLink>
-                        <NavLink className={'link'} to={'/secondTask'}>Second Task</NavLink>
-                        <NavLink className={'link'} to={'/thirdTask'}>Third Task</NavLink>
+                        <NavLink className={'link'} to={'/firstTask'} activeClassName='active-link'>First Task</NavLink>
+                        <NavLink className={'link'} to={'/secondTask'} activeClassName='active-link'>Second Task</NavLink>
+                        <NavLink className={'link'} to={'/thirdTask'} activeClassName='active-link'>Third Task</NavLink>
                     </div>
                     <Switch>
                         <Route path={'/firstTask'} component={FirstTask}>
@@ -62,6 +63,10 @@ class Navigation extends Component {
                         <Route path={'/thirdTaskByMonteCarlo'} component={MonteCarlo}>
                             <ThirdTaskNav/>
                             <MonteCarlo/>
+                        </Route>
+                        <Redirect exact from={'/'} to={'/home'} />
+                        <Route path={'/home'} component={Title}>
+                            <Title/>
                         </Route>
                     </Switch>
                 </BrowserRouter>

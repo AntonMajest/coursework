@@ -23,3 +23,8 @@
     transition: 1s;
     border-radius: 8px;
 }
+.active-link {
+    background-color: #6B5F86;
+    color: white;
+    border-radius: 8px;
+}
