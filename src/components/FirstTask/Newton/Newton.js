@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {findSolutionByNewton,getAmountAfterDot,generateGraph,calculateEquation } from "../../../service/task1";
 import ChartGraph from "../../ChartGraph/ChartGraph";
+import {toast} from "react-toastify";
 
 class Newton extends Component {
     constructor() {
@@ -10,7 +11,7 @@ class Newton extends Component {
             max: '10',
             min: '0',
             step: '0.01',
-            solution: 12.97766,
+            solution: 1.903,
             amount: 1,
             dichotomy: 8,
             log: [],
@@ -45,7 +46,7 @@ class Newton extends Component {
                 data: data.filter((el) => !isNaN(el.Y) && isFinite(el.Y)),
             });
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     };
 
@@ -63,10 +64,10 @@ class Newton extends Component {
                     }
                 })
                 .catch((e) => {
-                    console.log(e);
+                    toast.error(e.message)
                 });
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     };
 

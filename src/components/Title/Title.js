@@ -27,19 +27,10 @@ class Title extends Component {
                     <div className={'title-social'}>
                         <div className={'title-part'}>
                             <a className={'title-links__social'} href={'http://cdu.edu.ua/'}>
-                                <FontAwesomeIcon icon={faUniversity}/>
+                                cdu.edu.ua
                             </a>
                         </div>
-                        <div className={'title-part'}>
-                            <a className={'title-links__social'} href={'https://github.com/AntonOvcharenko-geek'}>
-                                <FontAwesomeIcon icon={faGithub}/>
-                            </a>
-                        </div>
-                        <div className={'title-part'}>
-                            <a className={'title-links__social'} href={'https://www.linkedin.com/in/anton-ovcharenko-a128901a5/'}>
-                                <FontAwesomeIcon icon={faLinkedin}/>
-                            </a>
-                        </div>
+
                     </div>
                 </div>
             </div>

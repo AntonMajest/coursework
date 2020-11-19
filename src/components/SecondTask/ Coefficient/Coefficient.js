@@ -24,7 +24,7 @@ class Coefficient extends PureComponent {
             let data = calculateEquation({min: 0, max: 15}, JSON.parse(this.state.dataset), +this.state.precision)
             this.setState({data: data.data.filter(el => !isNaN(el.Y) && isFinite(el.Y)), solution: {X: data.correctX, Y: data.correctY}})
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     }
 
@@ -48,7 +48,7 @@ class Coefficient extends PureComponent {
                 solution: { X: data.correctX, Y: data.correctY },
             });
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     };
 

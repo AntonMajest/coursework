@@ -4,6 +4,7 @@ import {equation, monteCarlo, rectangle, simpson, trap} from "../../../service/t
 import AreaGraph from "../../AreaGraph/AreaGraph";
 import './Rectan.css'
 import ThirdTaskTable from "../ThirdTaskTable/ThirdTaskTable";
+import {toast} from "react-toastify";
 class Rectan extends Component {
     constructor() {
         super()
@@ -40,7 +41,7 @@ class Rectan extends Component {
                 data: data.filter((el) => !isNaN(el.Y) && isFinite(el.Y)),
             });
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     };
 
@@ -52,7 +53,7 @@ class Rectan extends Component {
             num = rectangle({ min: +min, max: +max }, +iterations);
             this.setState({ solution: num });
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     };
 

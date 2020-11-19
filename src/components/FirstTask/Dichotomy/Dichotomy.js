@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {findSolutionByIteration,findSolutionByDichotomy, getAmountAfterDot,generateGraph,calculateEquation } from "../../../service/task1";
 import ChartGraph from "../../ChartGraph/ChartGraph";
+import {toast} from "react-toastify";
 
 
 class Dichotomy extends Component {
@@ -8,10 +9,10 @@ class Dichotomy extends Component {
         super()
         this.state = {
             data: [],
-            max: '1',
+            max: '10',
             min: '0',
             step: '0.01',
-            solution: 3.69,
+            solution: 2.22,
             amount: 1,
             dichotomy: 8,
             log: [],
@@ -20,7 +21,7 @@ class Dichotomy extends Component {
     }
 
     componentDidMount() {
-        let data = generateGraph({min: 0, max: 1}, 0.01, calculateEquation)
+        let data = generateGraph({min: 0, max: 10}, 0.01, calculateEquation)
         this.setState({data: data.filter(el => !isNaN(el.Y) && isFinite(el.Y))})
     }
 
@@ -44,7 +45,7 @@ class Dichotomy extends Component {
                 data: data.filter((el) => !isNaN(el.Y) && isFinite(el.Y)),
             });
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     };
 
@@ -66,7 +67,7 @@ class Dichotomy extends Component {
                 this.setState({ solution: num, log: log, amount: 1 });
             }
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     };
 

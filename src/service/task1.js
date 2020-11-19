@@ -1,7 +1,7 @@
 import {query, WOLFRAM_URL} from "../config/config";
 
 export function calculateEquation(x) {
-    return Math.pow(x,3) - Math.exp(4*x) + 5.5
+    return  Math.pow(x,3) - Math.sqrt(x) - 9.5 /*Math.pow(x,2) + Math.log(x) - 4*/ /*Math.pow(x,3) - Math.exp(4*x) + 5.5*/
 }
 
 export function getAmountAfterDot(n) {

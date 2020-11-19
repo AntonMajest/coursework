@@ -2,15 +2,16 @@ import React, {Component} from 'react';
 import {findSolutionByIteration, getAmountAfterDot,generateGraph,calculateEquation } from "../../../service/task1";
 import ChartGraph from "../../ChartGraph/ChartGraph";
 import './Iteration.css'
+import {toast} from "react-toastify";
 class Iteration extends Component {
     constructor() {
         super()
         this.state = {
             data: [],
-            max: '1',
+            max: '10',
             min: '0',
             step: '0.01',
-            solution: 7.92,
+            solution: 2.22,
             amount: 1,
             dichotomy: 8,
             log: [],
@@ -19,7 +20,7 @@ class Iteration extends Component {
     }
 
     componentDidMount() {
-        let data = generateGraph({min: 0, max: 1}, 0.01, calculateEquation)
+        let data = generateGraph({min: 0, max: 10}, 0.01, calculateEquation)
         console.log(data)
         this.setState({data: data.filter(el => !isNaN(el.Y) && isFinite(el.Y))})
     }
@@ -44,7 +45,7 @@ class Iteration extends Component {
                 data: data.filter((el) => !isNaN(el.Y) && isFinite(el.Y)),
             });
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     };
 
@@ -55,7 +56,7 @@ class Iteration extends Component {
             num = findSolutionByIteration(this.state.data);
             this.setState({ solution: num[0], amount: num[0] });
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     };
 
@@ -106,7 +107,7 @@ class Iteration extends Component {
                                 <div>X = {this.state.solution} </div>
                             </div>
                             <div>
-                                <div>Знайдено коренів {this.state.amount} </div>
+                                <div>Знайдено коренів 1 </div>
                             </div>
                         </div>
                         <div>

@@ -3,6 +3,7 @@ import AreaGraph from "../../AreaGraph/AreaGraph";
 import {generateGraph} from "../../../service/task1";
 import {equation, trap, simpson, rectangle, monteCarlo} from "../../../service/task3";
 import ThirdTaskTable from "../ThirdTaskTable/ThirdTaskTable";
+import {toast} from "react-toastify";
 
 class MonteCarlo extends Component {
     constructor() {
@@ -39,7 +40,7 @@ class MonteCarlo extends Component {
             let data = generateGraph({min: +min, max: +max}, 0.01, equation)
             this.setState({data: data.filter(el => !isNaN(el.Y) && isFinite(el.Y))})
         } catch (e) {
-            console.log(e);
+            toast.error(e.message)
         }
     }
 
@@ -55,7 +56,7 @@ class MonteCarlo extends Component {
 
 
         } catch(e) {
-            console.log(e);
+            toast.error(e.message)
         }
     }
 
