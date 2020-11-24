@@ -20,7 +20,7 @@ class GraphForMonte extends PureComponent {
                       activeDot={{r: 8}}
                 />
                 {this.props.dots.map(dot => {
-                    return <ReferenceDot x={+dot.x.toFixed(2)} y={dot.y} r={4} fill={dot.valid ? '#fab905' : '"#8884d8"'} stroke="white"/>
+                    return <ReferenceDot x={+dot.x.toFixed(2)} y={dot.y} r={4} fill={dot.valid ? '#4F2188' : '#1D8207'} stroke="white"/>
                 })}
             </AreaChart>
         );
