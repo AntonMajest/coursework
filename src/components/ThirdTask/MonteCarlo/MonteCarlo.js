@@ -4,6 +4,7 @@ import {generateGraph} from "../../../service/task1";
 import {equation, trap, simpson, rectangle, monteCarlo} from "../../../service/task3";
 import ThirdTaskTable from "../ThirdTaskTable/ThirdTaskTable";
 import {toast} from "react-toastify";
+import GraphForMonte from "../GraphForMonte/GraphForMonte";
 
 class MonteCarlo extends Component {
     constructor() {
@@ -14,6 +15,7 @@ class MonteCarlo extends Component {
             min: '0',
             maxY: '1',
             minY: '0',
+            dots: [],
             iterations: '10',
             solution: 0.00,
         }
@@ -46,13 +48,13 @@ class MonteCarlo extends Component {
 
     calculateArea = (e) => {
         e.preventDefault()
-        let {min, max, minY, maxY, iterations} = this.state
+        let {min, max, iterations} = this.state
         let num;
         try {
 
-                    num = monteCarlo({xMin: +min, xMax: +max}, {yMin: +minY, yMax: +maxY}, +iterations)
-                    console.log(num)
-                    this.setState({solution: num})
+            num = monteCarlo({xMin: +min, xMax: +max}, +iterations)
+            console.log(num)
+            this.setState({solution: num.area, dots: num.dots})
 
 
         } catch(e) {
@@ -72,13 +74,7 @@ class MonteCarlo extends Component {
                     <ThirdTaskTable
                         title={"Метод Монте-Карло"}
                         analiticValue={19.086}
-                        func={(iters) =>
-                            monteCarlo(
-                                { xMax: +max, xMin: +min },
-                                { yMax: +maxY, yMin: +minY },
-                                iters
-                            )
-                        }
+                        func={(iters) => monteCarlo({xMax: +max, xMin: +min}, iters)}
                     />
                 </div>
                     <div className='flxDirRow'>
@@ -149,7 +145,7 @@ class MonteCarlo extends Component {
 
 
 
-                <AreaGraph data={this.state.data} />
+                <GraphForMonte data={this.state.data} dots={this.state.dots} />
             </div>
             </div>
 

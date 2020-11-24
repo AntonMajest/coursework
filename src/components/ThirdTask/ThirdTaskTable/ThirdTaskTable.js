@@ -16,14 +16,17 @@ class ThirdTaskTable extends Component {
                 </thead>
                 <tbody>
                 {this.values.map(value => {
-                    let num = +this.props.func(value).toFixed(4)
+
+                    let num = this.props.func(value)
+                    if(typeof num === 'object') num = num.area.toFixed(4)
+
                     return (
                         <tr key={value}>
-                            <td>{value}</td>
-                            <td>{this.props.analiticValue}</td>
-                            <td>{num}</td>
-                            <td>{Math.abs(this.props.analiticValue - num).toFixed(4)}</td>
-                            <td>{Math.abs(this.props.analiticValue - num)/this.props.analiticValue * 100} %</td>
+                            <td className={'table-cell'}>{value}</td>
+                            <td className={'table-cell'}>{this.props.analiticValue}</td>
+                            <td className={'table-cell'}>{num}</td>
+                            <td className={'table-cell'}>{Math.abs(this.props.analiticValue - num).toFixed(4)}</td>
+                            <td className={'table-cell'}>{Math.abs(this.props.analiticValue - num)/this.props.analiticValue * 100} %</td>
                         </tr>
                     )
                 })}

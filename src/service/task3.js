@@ -2,6 +2,12 @@ function getRandom(min, max) {
     return Math.random() * (max - min) + min;
 }
 
+export function getYMax(min, max, equation){
+    let maximum = 0
+    for(let i = min; i < max; i += 0.1) if(equation(i) > maximum) maximum = equation(i)
+    return maximum
+}
+
 export function equation(x) {
     return Math.exp(x)
 }
@@ -42,17 +48,24 @@ export function simpson(interval, iters) {
     return area*height/3
 }
 
-export function monteCarlo(interval, yInterval, amountOfDots) {
+export function monteCarlo(interval, amountOfDots) {
     let {xMax, xMin} = interval
-    let {yMax, yMin} = yInterval
+    let yMin = 0
+    let yMax = getYMax(xMin, xMax, equation)
     if(xMin > xMax || yMin > yMax) throw new Error('Min не може бути більше max')
     if(amountOfDots <= 0) throw new Error('Кількість точок не може бути менше 0')
     let validDot = 0
+    let dots = []
     let area = (yMax - yMin) * (xMax - xMin)
     for(let i = 0; i < amountOfDots; i++) {
         let rndX = getRandom(xMin, xMax)
         let rndY = getRandom(yMin, yMax)
-        if(rndY <= equation(rndX)) validDot++
+        let dot = {x: rndX, y: rndY, valid: false}
+        if(rndY <= equation(rndX)) {
+            dot.valid = true
+            validDot++
+        }
+        dots.push(dot)
     }
-    return validDot / amountOfDots * area
+    return {area: validDot / amountOfDots * area, dots: dots}
 }
