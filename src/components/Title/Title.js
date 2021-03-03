@@ -17,7 +17,7 @@ class Title extends Component {
                         Курсова робота студента 3-В групи
                     </div>
                     <div className={'title-part'}>
-                        Овчаренко Антона Сергійовича
+                        Овчаренка Антона Сергійовича
                     </div>
                     <div className={'title-part'}>
                         <a className={'title-links'} href={'mailto:ovcharenko.anton2@gmail.com'}>

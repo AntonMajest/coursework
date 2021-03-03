@@ -9,11 +9,15 @@ import FirstTaskNav from "./FirstTaskNav/FirstTaskNav";
 import Dichotomy from "../FirstTask/Dichotomy/Dichotomy";
 import Newton from "../FirstTask/Newton/Newton";
 import ThirdTaskNav from "./ThirdTaskNav/ThirdTaskNav";
-import Simpson from "../ThirdTask/Simpson/Simpson";
 import Trapezium from "../ThirdTask/Trapezium/Trapezium";
 import MonteCarlo from "../ThirdTask/MonteCarlo/MonteCarlo";
 import Rectan from "../ThirdTask/Rectan/Rectan";
 import Title from "../Title/Title";
+import LabTask from '../LabTask/LabTask';
+import LabTaskIteration from '../LabTask/LabTaskIteration/LabTaskIteration';
+import LabTaskDichotomy from '../LabTask/LabTaskDichotomy/LabTaskDichotomy';
+import LabTaskNewton from '../LabTask/LabTaskNewton/LabTaskNewton';
+import LabTaskNav from './LabTaskNav/LabTaskNav';
 
 
 class Navigation extends Component {
@@ -25,6 +29,7 @@ class Navigation extends Component {
                         <NavLink className={'link'} to={'/firstTask'} activeClassName='active-link'>First Task</NavLink>
                         <NavLink className={'link'} to={'/secondTask'} activeClassName='active-link'>Second Task</NavLink>
                         <NavLink className={'link'} to={'/thirdTask'} activeClassName='active-link'>Third Task</NavLink>
+                        <NavLink className={'link'} to={'/labtask'} activeClassName='active-link'>Lab Task</NavLink>
                     </div>
                     <Switch>
                         <Route path={'/firstTask'} component={FirstTask}>
@@ -63,6 +68,21 @@ class Navigation extends Component {
                         <Route path={'/thirdTaskByMonteCarlo'} component={MonteCarlo}>
                             <ThirdTaskNav/>
                             <MonteCarlo/>
+                        </Route>
+                        <Route path={'/labtask'} component={LabTask}>
+                            <LabTaskNav/>
+                        </Route>
+                        <Route path={'/labtaskByIteration'} component={LabTaskIteration}>
+                            <LabTaskNav/>
+                            <LabTaskIteration/>
+                        </Route>
+                        <Route path={'/labtaskByDichotomy'} component={LabTaskDichotomy}>
+                            <LabTaskNav/>
+                            <LabTaskDichotomy/>
+                        </Route>
+                        <Route path={'/labtaskByNewton'} component={LabTaskNewton}>
+                            <LabTaskNav/>
+                            <LabTaskNewton/>
                         </Route>
                         <Redirect exact from={'/'} to={'/home'} />
                         <Route path={'/home'} component={Title}>
